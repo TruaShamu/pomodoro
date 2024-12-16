@@ -1,11 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import Controls from './components/Controls.jsx';
+import PomodoroApp from './components/PomodoroApp.jsx';
 function App() {
   return (
     <div className="App">
-      <h1>Pomodoro Timer</h1>
-      <Controls />
+      <PomodoroApp focusDuration={0.1 * 60} breakDuration={0.1 * 60} />
     </div>
   );
 }
