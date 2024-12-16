@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Timer from "./Timer";
 import Controls from "./Controls";
+import SettingModal from "./SettingModal";
 
 const PomodoroApp = ({ focusDuration = 1500, breakDuration = 300 }) => {
     const [timeLeft, setTimeLeft] = useState(focusDuration); // State for the time left on the timer in seconds
@@ -26,6 +27,10 @@ const PomodoroApp = ({ focusDuration = 1500, breakDuration = 300 }) => {
       setPhase(nextPhase);
       setTimeLeft(nextPhase === "focus" ? focusDuration : breakDuration);
       setIsRunning(false);
+    };
+
+    // Open settings
+    const openSettings = () => {
     };
   
     /* useEffect hook listening for changes in isRunning state.
@@ -61,7 +66,12 @@ const PomodoroApp = ({ focusDuration = 1500, breakDuration = 300 }) => {
         />
         <button
           onClick={toggleDarkMode}
-          className="px-4 py-2 rounded-md bg-gray-500 text-white mt-4 hover:bg-opacity-80"></button>
+          className="px-4 py-2 rounded-md bg-gray-500 text-white mt-4 hover:bg-opacity-80">
+            {isDarkMode ? "Light Mode" : "Dark Mode"}
+          </button>
+
+        <SettingModal></SettingModal>
+        
       </div>
     );
   };
